@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>tacit-page</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700|Poppins:600" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700|Poppins:600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900i" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
+</head>
+
+<body>
     <div id="app">
-      
-      
-      <header class="header">
-        <div class="head">
-            <div class="container">
-                <div class="logo">ModaX</div>
-                <nav class="navigation">
-                  <a href="#">home</a>
-                  <a href="#">portfolio</a>
-                  <a href="#">shop</a>
-                  <a href="#">page</a>
-                  <a href="#">blog</a>
-                  <a href="#">elements</a>
-                </nav>
-                <div class="searchCart">
-                  <button class="chartButt">
+
+
+        <header class="header">
+            <div class="head">
+                <div class="container">
+                    <div class="logo">ModaX</div>
+                    <nav class="navigation">
+                        <a href="#">home</a>
+                        <a href="#">portfolio</a>
+                        <a href="#">shop</a>
+                        <a href="#">page</a>
+                        <a href="#">blog</a>
+                        <a href="#">elements</a>
+                    </nav>
+                    <div class="searchCart">
+                        <button class="chartButt">
                     <div class="butt-inner">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 30 30" width="27px" height="27px" enable-background="new 0 0 30 30" >
                           <g>
@@ -35,7 +37,7 @@
                         </svg>
                     </div>
                   </button>
-                  <button class="searchButt">
+                        <button class="searchButt">
                     <div class="butt-inner">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 512 512" enable-background="new 0 0 512 512" width="23px" height="23px">
                           <g>
@@ -44,44 +46,44 @@
                         </svg>
                     </div>
                   </button>
+                    </div>
                 </div>
             </div>
+            <div class="header-title">
+                Men’s Lifestyle Clothing
+            </div>
+            <ul class="bradcrumbs">
+                <li class="bradcrumb"><a href="#">Home</a></li>
+                <li class="bradcrumb"><a href="#">Catalog</a></li>
+                <li class="bradcrumb"><a href="#">Menu</a></li>
+                <li class="bradcrumb"><span>Clothing</span></li>
+            </ul>
+        </header>
+        <div class="banner-block">
+            <div class="banner1" style="background-image:url(img/banner1.png)">
+                <div class="cat">
+                    lifestyle
+                </div>
+                <div class="subCat">
+                    New Now: Striped cotton
+                </div>
+                <button class="more">More Info</button>
+            </div>
+            <div class="banner2" style="background-image:url(img/banner2.png)">
+                <div class="cat">
+                    lifestyle
+                </div>
+                <div class="subCat">
+                    Fashion Collecttion
+                </div>
+                <button class="more">More Info</button>
+            </div>
         </div>
-        <div class="header-title">
-          Men’s Lifestyle Clothing
-        </div>
-        <ul class="bradcrumbs">
-          <li class="bradcrumb"><a href="#">Home</a></li>
-          <li class="bradcrumb"><a href="#">Catalog</a></li>
-          <li class="bradcrumb"><a href="#">Menu</a></li>
-          <li class="bradcrumb"><span>Clothing</span></li>
-        </ul>
-      </header>
-      <div class="banner-block">
-        <div class="banner1" style="background-image:url(img/banner1.png)">
-        <div class="cat">
-          lifestyle
-        </div>
-        <div class="subCat">
-          New Now: Striped cotton
-        </div>
-        <button class="more">More Info</button>
-        </div>
-        <div class="banner2" style="background-image:url(img/banner2.png)">
-          <div class="cat">
-            lifestyle
-          </div>
-          <div class="subCat">
-            Fashion Collecttion
-          </div>
-          <button class="more">More Info</button>
-        </div>
-      </div>
-      <div class="content">
-        <div class="top-pan">
-          <div class="top-pan__filter">
-            <span>Filter</span>
-            <button>
+        <div class="content">
+            <div class="top-pan">
+                <div class="top-pan__filter">
+                    <span>Filter</span>
+                    <button>
               <div class="butt-inner">
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="18px" height="18px" x="0px" y="0px" viewBox="0 0 34.057 34.057" style="enable-background:new 0 0 34.057 34.057;" xml:space="preserve">
                     <g>
@@ -101,33 +103,19 @@
                     </svg>        
               </div>  
             </button>
-          </div>
-          <div class="top-pan__sortBy">
-            <span>sort by:</span>
-            <multiselect
-              v-model="sortBy.val"
-              :options="sortBy.opts"
-              :searchable="false"
-              :close-on-select="true"
-              :clear-on-select="false"
-              label="name"
-              track-by="name">
-          </multiselect>
-          </div>
-          <div class="top-pan__qty">
-            <span>show:</span>
-            <multiselect
-              v-model="show.val"
-              :options="show.opts"
-              :searchable="false"
-              :close-on-select="true"
-              :clear-on-select="false"
-              label="qty"
-              track-by="qty">
-            </multiselect>
-          </div>
-          <div class="top-pan__view">
-            <button>
+                </div>
+                <div class="top-pan__sortBy">
+                    <span>sort by:</span>
+                    <multiselect v-model="sortBy.val" :options="sortBy.opts" :searchable="false" :close-on-select="true" :clear-on-select="false" label="name" track-by="name">
+                    </multiselect>
+                </div>
+                <div class="top-pan__qty">
+                    <span>show:</span>
+                    <multiselect v-model="show.val" :options="show.opts" :searchable="false" :close-on-select="true" :clear-on-select="false" label="qty" track-by="qty">
+                    </multiselect>
+                </div>
+                <div class="top-pan__view">
+                    <button>
               <div class="butt-inner">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="19px" height="19px">
                   <g>
@@ -178,7 +166,7 @@
                   </svg>
               </div>  
             </button>
-            <button>
+                    <button>
               <div class="butt-inner">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="19px" height="19px" viewBox="0 0 511.626 511.627" style="enable-background:new 0 0 511.626 511.627;" xml:space="preserve">
                   <g>
@@ -194,131 +182,146 @@
                 </svg> 
               </div>  
             </button>
-            <button class="viewAll">
+                    <button class="viewAll">
               <div class="butt-inner">
                   view All
               </div>
             </button>
-          </div>
-          
-        </div>
-        <div class="prods">
-          <div class="prods__filters">
-            <div class="prods__filters__item">
-                <div class="prods__filters__item__title opened">
-                    Categories
-                    <button class="close">+</button>
-                </div> 
-                <ul class="prods__filters__item__opts1">
-                  <li><span>Lifestyle</span><span>01</span></li>
-                  <li><span>Running</span><span>15</span></li>
-                  <li><span>Training & Gym</span><span>20</span></li>
-                  <li><span>Clothing</span><span>25</span></li>
-                  <li><span>Scarves</span><span>30</span></li>
-                  <li><span>Accessories</span><span>35</span></li>
-                </ul>
-            </div>
-            <div class="prods__filters__item">
-                <div class="prods__filters__item__title opened">
-                    Size
-                    <button class="close">+</button>
-                </div> 
-                <ul class="prods__filters__item__opts2">
-                  <li>s</li>
-                  <li class="active">m</li>
-                  <li>l</li>
-                  <li>xl</li>
-                </ul>
-            </div>
-          </div>
-          <div class="prods__products">
-              <div class="prods__products__wrap">
-                  <product v-for="prod in items" :item="prod" :key="prod.id"></product>
-              </div>
-          </div>
-        </div>
-        <div class="pagination">
-          <button class="prev"></button>
-          <ul class="pags">
-            <li class="active"><button>01</button></li>
-            <li><button>02</button></li>
-            <li><button>03</button></li>
-            <li><button>04</button></li>
-            <li><button>05</button></li>
-          </ul>
-          <button class="next"></button>
-        </div>
-      </div>
-      <div class="slider" >
-          <div id="banners">
-              <div class="slide" >
-                  <div class="image" style="background-image:url(http://bgwall.net/wp-content/uploads/2014/09/Dandelion-Flower-Wallpaper-Full-HD.jpg)"></div>
-                  <div class="info">
-                    <div class="title">New Product</div>
-                    <div class="text">The new Collection of Summer</div>
-                  </div>
                 </div>
+
+            </div>
+            <div class="prods">
+                <div class="prods__filters">
+                    <div class="prods__filters__item">
+                        <div class="prods__filters__item__title opened">
+                            Categories
+                            <button class="close">+</button>
+                        </div>
+                        <ul class="prods__filters__item__opts1">
+                            <li><span>Lifestyle</span><span>01</span></li>
+                            <li><span>Running</span><span>15</span></li>
+                            <li><span>Training & Gym</span><span>20</span></li>
+                            <li><span>Clothing</span><span>25</span></li>
+                            <li><span>Scarves</span><span>30</span></li>
+                            <li><span>Accessories</span><span>35</span></li>
+                        </ul>
+                    </div>
+                    <div class="prods__filters__item">
+                        <div class="prods__filters__item__title opened">
+                            Size
+                            <button class="close">+</button>
+                        </div>
+                        <ul class="prods__filters__item__opts2">
+                            <li>s</li>
+                            <li class="active">m</li>
+                            <li>l</li>
+                            <li>xl</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="prods__products">
+                    <div class="prods__products__wrap">
+                        <product v-for="prod in items" :item="prod" :key="prod.id"></product>
+                    </div>
+                </div>
+            </div>
+            <div class="pagination">
+                <button class="prev"></button>
+                <ul class="pags">
+                    <li class="active"><button>01</button></li>
+                    <li><button>02</button></li>
+                    <li><button>03</button></li>
+                    <li><button>04</button></li>
+                    <li><button>05</button></li>
+                </ul>
+                <button class="next"></button>
+            </div>
+        </div>
+        <div class="slider">
+            <div id="banners">
                 <div class="slide">
                     <div class="image" style="background-image:url(http://bgwall.net/wp-content/uploads/2014/09/Dandelion-Flower-Wallpaper-Full-HD.jpg)"></div>
                     <div class="info">
-                      <div class="title">New Product2</div>
-                      <div class="text">The new Collection of Summer</div>
+                        <div class="title">New Product</div>
+                        <div class="text">The new Collection of Summer</div>
                     </div>
                 </div>
                 <div class="slide">
                     <div class="image" style="background-image:url(http://bgwall.net/wp-content/uploads/2014/09/Dandelion-Flower-Wallpaper-Full-HD.jpg)"></div>
-                      <div class="info">
+                    <div class="info">
+                        <div class="title">New Product2</div>
+                        <div class="text">The new Collection of Summer</div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="image" style="background-image:url(http://bgwall.net/wp-content/uploads/2014/09/Dandelion-Flower-Wallpaper-Full-HD.jpg)"></div>
+                    <div class="info">
                         <div class="title">New Product3</div>
                         <div class="text">The new Collection of Summer</div>
-                      </div>
+                    </div>
                 </div>
-          </div>
+            </div>
 
 
         </div>
-     
+
+
 
     </div>
+    <div class="parteners">
+        <div class="part"></div>
+        <div class="part"></div>
+        <div class="part"></div>
+        <div class="part"></div>
+    </div>
+    <footer class="footer">
+
+    </footer>
     <script>
-     window.prods =
-     [
-       {
-         id:0,
-         name:'Essential cotton-blend',
-         img:'https://i.simpalsmedia.com/marketplace/products/original/4011f6e25b3a4a95702915ffaa45b8d5.jpg',
-         price:{new:100 , old:200},
-         sale:true
-       },
-       {
-         id:1,
-         name:'Ruffle sleeve t-shirt',
-         img:'https://i.simpalsmedia.com/marketplace/products/original/4011f6e25b3a4a95702915ffaa45b8d5.jpg',
-         price:{new:175},
-         sale:false
-       },
-       {
-         id:2,
-         name:'Double layer top',
-         img:'https://i.simpalsmedia.com/marketplace/products/original/4011f6e25b3a4a95702915ffaa45b8d5.jpg',
-         price:{new:200},
-         sale:false
-       },
-       {
-         id:3,
-         name:'V-neck cotton t-shirt',
-         img:'https://i.simpalsmedia.com/marketplace/products/original/4011f6e25b3a4a95702915ffaa45b8d5.jpg',
-         price:{new:100},
-         sale:true
-       },
-       {
-         id:4,
-         name:'Message cotton t-shirt',
-         img:'https://i.simpalsmedia.com/marketplace/products/original/4011f6e25b3a4a95702915ffaa45b8d5.jpg',
-         price:{new:100},
-         sale:false
-       },
-     ];
+        window.prods = [{
+            id: 0,
+            name: 'Essential cotton-blend',
+            img: 'https://i.simpalsmedia.com/marketplace/products/original/4011f6e25b3a4a95702915ffaa45b8d5.jpg',
+            price: {
+                new: 100,
+                old: 200
+            },
+            sale: true
+        }, {
+            id: 1,
+            name: 'Ruffle sleeve t-shirt',
+            img: 'https://i.simpalsmedia.com/marketplace/products/original/4011f6e25b3a4a95702915ffaa45b8d5.jpg',
+            price: {
+                new: 175
+            },
+            sale: false
+        }, {
+            id: 2,
+            name: 'Double layer top',
+            img: 'https://i.simpalsmedia.com/marketplace/products/original/4011f6e25b3a4a95702915ffaa45b8d5.jpg',
+            price: {
+                new: 200
+            },
+            sale: false
+        }, {
+            id: 3,
+            name: 'V-neck cotton t-shirt',
+            img: 'https://i.simpalsmedia.com/marketplace/products/original/4011f6e25b3a4a95702915ffaa45b8d5.jpg',
+            price: {
+                new: 100
+            },
+            sale: true
+        }, {
+            id: 4,
+            name: 'Message cotton t-shirt',
+            img: 'https://i.simpalsmedia.com/marketplace/products/original/4011f6e25b3a4a95702915ffaa45b8d5.jpg',
+            price: {
+                new: 100
+            },
+            sale: false
+        }, ];
     </script>
     <script src="/dist/build.js"></script>
-  </body>
+</body>
+
 </html>

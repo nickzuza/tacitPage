@@ -716,10 +716,19 @@ button[data-action="stop"] {
   background-color: #fff;
 }
 .parteners {
-  width: calc(100% - 305px);
-  margin: 0 auto;
+  width: calc(100% - 285px);
+  margin: 0 auto 90px;
   height: 70px;
+  display: flex;
 }
 .parteners .part {
-  width: calc(5%);
+  width: calc(25% - 20px);
+  height: 80px;
+  margin: 0 10px;
+  background-color: #eee;
+}
+.footer {
+  width: 100%;
+  height: 240px;
+  background: #363637;
 }
