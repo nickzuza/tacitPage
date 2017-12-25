@@ -6,6 +6,7 @@ window.page = new Vue({
   el:'#app',
   data:{
     items:window.prods,
+    inCartItms:0,
     sortBy:{
       opts:[
         {id:0,name:"Price $ - $$"},
@@ -23,7 +24,18 @@ window.page = new Vue({
       val:null
     }
   },
-  methods:{},
+  methods:{
+    inCartCount(){
+      this.inCartItms=0;
+      let children = this.$refs
+      for(let key in children){
+        this.inCartItms += children[key][0].nrItems;
+        console.log(this.inCartItms);
+      }
+     
+
+    }
+  },
   components:{
     Multiselect,Product
   },

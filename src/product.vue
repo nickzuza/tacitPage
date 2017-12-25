@@ -9,11 +9,11 @@
             </div>
             <div class="bottom-block">
                 <div class="count">
-                <button>+</button>
+                <button v-on:click="change(1)">+</button>
                 <input type="number" v-model="nrItems">
-                <button>-</button>
+                <button v-on:click="change(-1)">-</button>
                 </div>
-                <button class="toCard">+ Add To Card</button>
+                <button class="toCard" v-on:click="addToCard">+ Add To Card</button>
             </div>
     </div>
 </template>
@@ -23,6 +23,18 @@ export default {
       return{
           nrItems:0
       }
+  },
+  methods:{
+      change(num){
+          if(this.nrItems + num < 99 && (this.nrItems + num ) >= 0){
+                this.nrItems += num;
+          }
+      },
+      addToCard(){
+        this.$emit('changed');
+      }
+       
+
   },
   props:['item'],
 }
