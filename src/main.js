@@ -55,20 +55,36 @@ window.page = new Vue({
   },
   mounted(){
     this.sortBy.val = this.sortBy.opts[0];
-    window.slider = tns({
-      container: '#banners',
-      slideBy: 1,
-      autoplay: true,
-      nav:true
-    })  
   }
 });
-
-
 window.addEventListener('load',()=>{
- 
+  window.slider = tns({
+    container: '#banners',
+    slideBy: 1,
+    autoplay: true,
+    nav:true,
+  })  
+  document.getElementById('gridView').addEventListener('click',function(e){
+    let el = e.currentTarget;
+    let listButt = document.getElementById('listView');
+    listButt.classList.contains('active') ? listButt.classList.remove('active') : null ;
+    el.classList.add('active');
+    let prodBlock = document.querySelector('.prods__products__wrap');
+    prodBlock.classList.contains('list')? prodBlock.classList.remove('list'): null;
+  });
+
+  document.getElementById('listView').addEventListener('click',function(e){
+    let el = e.currentTarget;
+    let gridButt = document.getElementById('gridView');
+    gridButt.classList.contains('active') ? gridButt.classList.remove('active') : null ;
+    el.classList.add('active');
+    document.querySelector('.prods__products__wrap').classList.add('list');
+
+  });
+
+  
   let filterTitles=document.querySelectorAll('.prods__filters__item__title');
- 
+
   for(let i =0 ; i < filterTitles.length; i ++){
     let filter = filterTitles[i].closest('.prods__filters__item');
     filterTitles[i].addEventListener('click' , ()=>{
@@ -92,7 +108,7 @@ window.addEventListener('load',()=>{
 
   let sizes = document.querySelectorAll('.prods__filters__item__opts2 ul li');
 
-  for(let i =0 ; i < sizes.length; i ++){
+  for(let i=0; i<sizes.length; i++){
     sizes[i].addEventListener('click',()=>{
       if(document.querySelector('.prods__filters__item__opts2 ul li.active')){
         document.querySelector('.prods__filters__item__opts2 ul li.active').classList.remove('active');
@@ -100,6 +116,18 @@ window.addEventListener('load',()=>{
       sizes[i].classList.contains('active')?sizes[i].classList.remove('active') :sizes[i].classList.add('active');
     });
   }
+
+  
+  let categs = document.querySelectorAll('.prods__filters__item__opts1 ul li');
+  for(let i=0; i < categs.length; i++){
+    categs[i].addEventListener('click',()=>{
+      if(document.querySelector('.prods__filters__item__opts1 ul li.active')){
+        document.querySelector('.prods__filters__item__opts1 ul li.active').classList.remove('active');
+      }
+      categs[i].classList.contains('active')?categs[i].classList.remove('active') :categs[i].classList.add('active');
+    });
+  }
+
 
   
 });

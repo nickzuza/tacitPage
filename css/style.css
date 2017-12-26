@@ -25,10 +25,17 @@ button {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.container {
+  margin: 0 auto;
+}
 @media (min-width: 1280px) and (max-width: 69999px) {
   .container {
     width: 1280px;
-    margin: 0 auto;
+  }
+}
+@media (min-width: 2px) and (max-width: 1279px) {
+  .container {
+    width: calc(100% - 40px);
   }
 }
 .butt-inner {
@@ -158,6 +165,7 @@ button {
   display: inline-block;
 }
 .banner-block {
+  margin: 0 auto;
   height: 320px;
   background: #eee;
   margin-top: -90px !important;
@@ -166,7 +174,11 @@ button {
 @media (min-width: 1280px) and (max-width: 69999px) {
   .banner-block {
     width: 1280px;
-    margin: 0 auto;
+  }
+}
+@media (min-width: 2px) and (max-width: 1279px) {
+  .banner-block {
+    width: calc(100% - 40px);
   }
 }
 .banner-block .banner1,
@@ -210,6 +222,13 @@ button {
   cursor: pointer;
   font-size: 14px;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+  transition: 0.3s;
+}
+.banner-block .banner1 .more:hover,
+.banner-block .banner2 .more:hover {
+  background-color: transparent;
+  color: #fff;
+  box-shadow: none;
 }
 .banner-block .banner1 {
   padding-left: 82px;
@@ -217,19 +236,37 @@ button {
   box-sizing: border-box;
   align-items: flex-start;
 }
+@media (min-width: 960px) and (max-width: 1279px) {
+  .banner-block .banner1 {
+    width: calc(100% - 320px);
+  }
+}
 .banner-block .banner2 {
   box-sizing: border-box;
   width: 30%;
   align-items: flex-start;
   padding: 0 30px 0 185px;
 }
+@media (min-width: 960px) and (max-width: 1279px) {
+  .banner-block .banner2 {
+    background-position: left;
+    width: 320px;
+    padding: 20px 30px;
+    align-items: center;
+    justify-content: center;
+  }
+}
 .content {
-  min-height: 500px;
+  margin: 0 auto;
 }
 @media (min-width: 1280px) and (max-width: 69999px) {
   .content {
     width: 1280px;
-    margin: 0 auto;
+  }
+}
+@media (min-width: 2px) and (max-width: 1279px) {
+  .content {
+    width: calc(100% - 40px);
   }
 }
 .content .top-pan {
@@ -308,11 +345,11 @@ s .content .top-pan .multiselect:after {
   font-weight: 700;
   text-transform: uppercase;
   font-size: 14px;
-  width: 25%;
   height: 80px;
   position: relative;
 }
 .content .top-pan__filter {
+  width: 25%;
   padding-left: 30px;
   border-right: 1px solid #d5d5d6;
 }
@@ -321,6 +358,11 @@ s .content .top-pan .multiselect:after {
 }
 .content .top-pan__filter button {
   border-left: 1px solid #d5d5d6;
+}
+@media (min-width: 2px) and (max-width: 1279px) {
+  .content .top-pan__filter {
+    display: none;
+  }
 }
 .content .top-pan__sortBy,
 .content .top-pan__qty {
@@ -334,9 +376,19 @@ s .content .top-pan .multiselect:after {
 .content .top-pan__sortBy {
   width: calc(25% + 15px);
 }
+@media (min-width: 960px) and (max-width: 1279px) {
+  .content .top-pan__sortBy {
+    width: calc(50% - 160px);
+  }
+}
 .content .top-pan__qty {
   width: calc(25% - 15px);
   padding: 0 30px;
+}
+@media (min-width: 960px) and (max-width: 1279px) {
+  .content .top-pan__qty {
+    width: calc(50% - 160px);
+  }
 }
 .content .top-pan__view {
   width: 320px;
@@ -374,6 +426,11 @@ s .content .top-pan .multiselect:after {
   width: calc(25% + 6px);
   box-sizing: border-box;
   min-height: 200px;
+}
+@media (min-width: 960px) and (max-width: 1279px) {
+  .content .prods__filters {
+    width: calc(100% / 3 - 9px);
+  }
 }
 .content .prods__filters__item {
   width: 100%;
@@ -451,7 +508,11 @@ s .content .top-pan .multiselect:after {
   font-family: 'Montserrat';
   font-weight: 400px;
   font-size: 14px;
+  transition: 0.3s;
   color: #424242;
+}
+.content .prods__filters__item__opts1 li.active {
+  color: #3853d8;
 }
 .content .prods__filters__item__opts2 {
   padding: 56px 15px 53px 16px;
@@ -492,6 +553,13 @@ s .content .top-pan .multiselect:after {
   min-height: 200px;
   padding-top: 10px;
   padding-left: 15px;
+  overflow-x: hidden;
+}
+@media (min-width: 960px) and (max-width: 1279px) {
+  .content .prods__products {
+    width: calc((100% / 3) *2);
+    padding: 0;
+  }
 }
 .content .prods__products__wrap {
   width: calc(100% + 15px);
@@ -508,20 +576,47 @@ s .content .top-pan .multiselect:after {
     padding: 18px 27px;
   }
 }
-.content .prods__products__wrap.list .item .img {
-  height: 140px;
-  width: 140px;
+@media (min-width: 960px) and (max-width: 69999px) {
+  .content .prods__products__wrap.list .item .img {
+    height: 140px;
+    width: 140px;
+  }
 }
-.content .prods__products__wrap.list .item .prices {
-  flex-direction: column;
-  width: auto;
-  min-width: 200px;
-  align-items: flex-start;
+@media (min-width: 960px) and (max-width: 69999px) {
+  .content .prods__products__wrap.list .item .title {
+    width: calc(70% - 290px);
+  }
 }
-.content .prods__products__wrap.list .item .prices .new {
-  order: -1;
+@media (min-width: 960px) and (max-width: 69999px) {
+  .content .prods__products__wrap.list .item .prices {
+    flex-direction: column;
+    width: auto;
+    min-width: 150px;
+    align-items: flex-start;
+    padding-top: 30px;
+  }
+}
+@media (min-width: 960px) and (max-width: 69999px) {
+  .content .prods__products__wrap.list .item .prices .new {
+    order: -1;
+  }
+}
+@media (min-width: 960px) and (max-width: 69999px) {
+  .content .prods__products__wrap.list .item .bottom-block {
+    padding-top: 30px;
+    width: 30%;
+  }
+}
+.content .prods__products__wrap.list .item .bottom-block .count {
+  margin-bottom: 20px;
+}
+@media (min-width: 960px) and (max-width: 1279px) {
+  .content .prods__products__wrap.list .item .bottom-block {
+    flex-direction: column;
+  }
 }
 .content .prods__products__wrap .item {
+  transition: 0.6s;
   width: calc((100% / 3 ) - 30px);
   margin: 15px;
   border: 1px solid #d5d5d6;
@@ -532,6 +627,11 @@ s .content .top-pan .multiselect:after {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+@media (min-width: 960px) and (max-width: 1279px) {
+  .content .prods__products__wrap .item {
+    width: calc(50% - 30px);
+  }
 }
 .content .prods__products__wrap .item .sticker {
   position: absolute;
@@ -546,6 +646,7 @@ s .content .top-pan .multiselect:after {
   color: #fff;
 }
 .content .prods__products__wrap .item .img {
+  transition: 0.3s;
   height: 165px;
   width: 100%;
   background-size: contain;
@@ -553,6 +654,7 @@ s .content .top-pan .multiselect:after {
   background-color: #fff;
 }
 .content .prods__products__wrap .item .title {
+  transition: 0.3s;
   font-family: 'Playfair Display';
   font-size: 18px;
   color: #232323;
@@ -577,6 +679,7 @@ s .content .top-pan .multiselect:after {
   display: inline-block;
 }
 .content .prods__products__wrap .item .prices .old {
+  transition: 0.3s;
   margin-right: 20px;
   color: #999999;
   position: relative;
@@ -594,9 +697,11 @@ s .content .top-pan .multiselect:after {
   margin: auto 0;
 }
 .content .prods__products__wrap .item .prices .new {
+  transition: 0.3s;
   color: #3853d8;
 }
 .content .prods__products__wrap .item .bottom-block {
+  transition: 0.3s;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -658,6 +763,7 @@ s .content .top-pan .multiselect:after {
   background-color: #d32f2f;
 }
 .content .pagination {
+  margin: 0 auto;
   border: 1px solid #d5d5d6;
   height: 80px;
   display: flex;
@@ -666,7 +772,11 @@ s .content .top-pan .multiselect:after {
 @media (min-width: 1280px) and (max-width: 69999px) {
   .content .pagination {
     width: 1280px;
-    margin: 0 auto;
+  }
+}
+@media (min-width: 2px) and (max-width: 1279px) {
+  .content .pagination {
+    width: calc(100% - 40px);
   }
 }
 .content .pagination button {
@@ -726,6 +836,7 @@ s .content .top-pan .multiselect:after {
   height: 250px;
   position: relative;
   margin-bottom: 80px;
+  overflow: hidden;
 }
 .slider .slide {
   width: 100%;
@@ -805,8 +916,8 @@ button[data-action="stop"] {
 .parteners {
   width: calc(100% - 285px);
   margin: 0 auto 90px;
-  height: 70px;
   display: flex;
+  flex-wrap: wrap;
 }
 .parteners .part {
   background-position: center;
@@ -819,6 +930,12 @@ button[data-action="stop"] {
   opacity: 0.3;
   filter: grayscale(1);
   transition: 0.3s;
+}
+@media (min-width: 960px) and (max-width: 1279px) {
+  .parteners .part {
+    width: calc(50% - 20px);
+    margin: 10px;
+  }
 }
 .parteners .part:hover {
   opacity: 1;

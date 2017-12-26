@@ -26,14 +26,6 @@ export default {
           inBasket:false
       }
   },
-//   watch:{
-//       nrItems(newval , oldval){
-//           console.log(newval);
-//           if(parseInt(newval) > 99 || parseInt(newval) < 0 ){
-//               newval = oldval;
-//           } 
-//       }
-//   },
   methods:{
       change(num){
           if(this.nrItems + num < 99 && (this.nrItems + num ) >= 0){

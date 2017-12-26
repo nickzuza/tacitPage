@@ -84,7 +84,7 @@
             <div class="top-pan">
                 <div class="top-pan__filter">
                     <span>Filter:</span>
-                    <button>
+                    <button id="clearFilters">
               <div class="butt-inner">
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="18px" height="18px" x="0px" y="0px" viewBox="0 0 34.057 34.057" style="enable-background:new 0 0 34.057 34.057;" xml:space="preserve">
                     <g>
@@ -116,7 +116,7 @@
                     </multiselect>
                 </div>
                 <div class="top-pan__view">
-                    <button>
+                    <button id="gridView">
               <div class="butt-inner">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="19px" height="19px">
                   <g>
@@ -167,7 +167,7 @@
                   </svg>
               </div>  
             </button>
-                    <button>
+                    <button id="listView">
               <div class="butt-inner">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="22px" height="22px" viewBox="0 0 511.626 511.627" style="enable-background:new 0 0 511.626 511.627;" xml:space="preserve">
                   <g>
@@ -227,7 +227,7 @@
                     </div>
                 </div>
                 <div class="prods__products">
-                    <div class="prods__products__wrap list">
+                    <div class="prods__products__wrap">
                         <product v-for="(prod , index) in items" :item="prod" v-on:changed="inCartAdd" v-on:remove="removeItem" :ref="'prod'+index" :key="prod.id"></product>
                     </div>
                 </div>
