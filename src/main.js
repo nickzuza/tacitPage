@@ -1,17 +1,21 @@
+'use Strict';
 import Vue from 'vue'
 import Multiselect from 'vue-multiselect';
 import Product from './product';
 import { tns } from "tiny-slider/src/tiny-slider.module.js"
+window.Velocity = require('velocity-animate');
 window.page = new Vue({
   el:'#app',
   data:{
     items:window.prods,
-    inCartItms:0,
+    inCartItms:{
+      count:0,
+      items:[]
+    },
     sortBy:{
       opts:[
         {id:0,name:"Price $ - $$"},
-          {id:1,name:"test1"},
-          {id:2,name:"test2"}
+        {id:1,name:"Name A - Z"},
       ],
       val:null
     },
@@ -25,16 +29,26 @@ window.page = new Vue({
     }
   },
   methods:{
-    inCartCount(){
-      this.inCartItms=0;
-      let children = this.$refs
-      for(let key in children){
-        this.inCartItms += children[key][0].nrItems;
-        console.log(this.inCartItms);
+    inCartAdd(item){
+      this.inCartItms.items.push(item);
+      this.inCartItmsCount();  
+    },
+    inCartItmsCount(){
+      this.inCartItms.count = 0;
+      for(let i = 0 ; i < this.inCartItms.items.length;i++){
+        this.inCartItms.count += this.inCartItms.items[i].quant;
+      }   
+    },
+    removeItem(id){
+      for(let i = 0 ; i < this.inCartItms.items.length;i++){
+        if(this.inCartItms.items[i].id === id){
+          this.inCartItms.items.splice(i, 1);
+        }
       }
-     
+      this.inCartItmsCount(); 
 
     }
+
   },
   components:{
     Multiselect,Product
@@ -48,5 +62,47 @@ window.page = new Vue({
       nav:true
     })  
   }
-})
+});
+
+
+window.addEventListener('load',()=>{
+ 
+  let filterTitles=document.querySelectorAll('.prods__filters__item__title');
+ 
+  for(let i =0 ; i < filterTitles.length; i ++){
+    let filter = filterTitles[i].closest('.prods__filters__item');
+    filterTitles[i].addEventListener('click' , ()=>{
+      if(!filter.classList.contains('opened')){
+        filter.classList.add('opened');
+        Velocity(filter.querySelector('.prods__filters__item__opts1 , .prods__filters__item__opts2') , 'slideDown' , {  duration: 300 })
+      }
+    });
+  }
+  
+  let closeFil = document.querySelectorAll('.prods__filters__item__title .close');
+
+  for(let i =0 ; i < closeFil.length; i ++){
+    let filter = closeFil[i].closest('.prods__filters__item');
+    closeFil[i].addEventListener('click', (e)=>{
+      e.stopPropagation();
+      filter.classList.remove('opened');
+      Velocity(filter.querySelector('.prods__filters__item__opts1 , .prods__filters__item__opts2') , 'slideUp' , {  duration: 300 });
+    });
+  }
+
+  let sizes = document.querySelectorAll('.prods__filters__item__opts2 ul li');
+
+  for(let i =0 ; i < sizes.length; i ++){
+    sizes[i].addEventListener('click',()=>{
+      if(document.querySelector('.prods__filters__item__opts2 ul li.active')){
+        document.querySelector('.prods__filters__item__opts2 ul li.active').classList.remove('active');
+      }
+      sizes[i].classList.contains('active')?sizes[i].classList.remove('active') :sizes[i].classList.add('active');
+    });
+  }
+
+  
+});
+
+
 //()

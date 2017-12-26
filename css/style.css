@@ -348,10 +348,20 @@ s .content .top-pan .multiselect:after {
   font-weight: 700;
   text-transform: uppercase;
   width: 160px;
+  color: #fff;
+  background-color: #3853d8;
   border: none;
+  box-shadow: 1px 1px 0 #3853d8;
 }
 .content .top-pan__view button {
+  transition: 0.3s;
   border-right: 1px solid #d5d5d6;
+}
+.content .top-pan__view button.active {
+  background-color: #3853d8;
+}
+.content .top-pan__view button.active svg {
+  fill: #fff;
 }
 .content .prods {
   width: 100%;
@@ -367,24 +377,22 @@ s .content .top-pan .multiselect:after {
 }
 .content .prods__filters__item {
   width: 100%;
-  min-height: 100px;
   border-left: 1px solid #d5d5d6;
   border-right: 1px solid #d5d5d6;
   border-bottom: 1px solid #d5d5d6;
   padding: 0 13px;
   box-sizing: border-box;
+  user-select: none;
 }
-.content .prods__filters__item__title {
+.content .prods__filters__item.opened .prods__filters__item__title {
   border-bottom: 1px solid #f8f8f8;
-  padding: 25px 15px;
-  font-family: 'Montserrat';
-  font-weight: 700;
-  font-size: 14px;
-  display: flex;
-  position: relative;
-  text-transform: uppercase;
+  cursor: default;
 }
-.content .prods__filters__item__title.opened .close {
+.content .prods__filters__item.opened .prods__filters__item__title:before {
+  transform: rotate(225deg);
+  margin-top: 8px;
+}
+.content .prods__filters__item.opened .prods__filters__item__title .close {
   transform: rotate(45deg);
   background: none;
   border: none;
@@ -394,7 +402,25 @@ s .content .top-pan .multiselect:after {
   right: 15px;
   top: 0;
   bottom: 0;
+  cursor: pointer;
+  visibility: visible;
   margin: auto 0;
+  opacity: 1;
+  display: block;
+}
+.content .prods__filters__item.opened .prods__filters__item__title .close:hover {
+  color: #3853d8;
+}
+.content .prods__filters__item__title {
+  border-bottom: 1px solid transparent;
+  padding: 25px 15px;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  position: relative;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 .content .prods__filters__item__title:before {
   content: '';
@@ -406,10 +432,14 @@ s .content .top-pan .multiselect:after {
   border-bottom: 2px solid #000;
   border-right: 2px solid #000;
   display: inline-block;
+  transition: 0.3s;
+}
+.content .prods__filters__item__title .close {
+  visibility: hidden;
+  opacity: 0;
 }
 .content .prods__filters__item__opts1 {
   width: 100%;
-  min-height: 50px;
   padding: 32px  22px 43px 46px;
   box-sizing: border-box;
 }
@@ -429,11 +459,17 @@ s .content .top-pan .multiselect:after {
   display: flex;
   justify-content: center;
 }
+.content .prods__filters__item__opts2 ul {
+  display: flex;
+  justify-content: center;
+}
 .content .prods__filters__item__opts2 li {
+  transition: 0.3s;
   margin-top: -1px;
   margin-left: -1px;
   width: 60px;
   height: 60px;
+  cursor: pointer;
   box-sizing: border-box;
   border: 1px solid #d5d5d6;
   display: flex;
@@ -447,6 +483,10 @@ s .content .top-pan .multiselect:after {
 .content .prods__filters__item__opts2 li.active {
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
 }
+.content .prods__filters__item__opts1,
+.content .prods__filters__item__opts2 {
+  display: none;
+}
 .content .prods__products {
   width: 75%;
   min-height: 200px;
@@ -458,6 +498,28 @@ s .content .top-pan .multiselect:after {
   margin-right: -15px;
   display: flex;
   flex-wrap: wrap;
+}
+@media (min-width: 960px) and (max-width: 69999px) {
+  .content .prods__products__wrap.list .item {
+    flex-direction: row;
+    width: calc(100% - 30px);
+    height: 178px;
+    align-items: center;
+    padding: 18px 27px;
+  }
+}
+.content .prods__products__wrap.list .item .img {
+  height: 140px;
+  width: 140px;
+}
+.content .prods__products__wrap.list .item .prices {
+  flex-direction: column;
+  width: auto;
+  min-width: 200px;
+  align-items: flex-start;
+}
+.content .prods__products__wrap.list .item .prices .new {
+  order: -1;
 }
 .content .prods__products__wrap .item {
   width: calc((100% / 3 ) - 30px);
@@ -584,6 +646,16 @@ s .content .top-pan .multiselect:after {
   font-family: 'Montserrat';
   border: none;
   font-size: 12px;
+  transition: 0.3s;
+}
+.content .prods__products__wrap .item .bottom-block .toCard:hover {
+  background-color: #0021c4;
+}
+.content .prods__products__wrap .item .bottom-block .toCard.del {
+  background-color: #f44336;
+}
+.content .prods__products__wrap .item .bottom-block .toCard.del:hover {
+  background-color: #d32f2f;
 }
 .content .pagination {
   border: 1px solid #d5d5d6;
