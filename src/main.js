@@ -63,7 +63,17 @@ window.addEventListener('load',()=>{
     slideBy: 1,
     autoplay: true,
     nav:true,
-  })  
+    disabled:false,
+
+    responsive:{
+      2:{
+        disabled:true
+      },
+      960:{
+        disabled:false
+      }
+    }
+  });
   document.getElementById('gridView').addEventListener('click',function(e){
     let el = e.currentTarget;
     let listButt = document.getElementById('listView');
