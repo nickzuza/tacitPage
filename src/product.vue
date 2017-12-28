@@ -33,10 +33,11 @@ export default {
           }
       },
       addToCard(){
-            if(this.nrItems > 0 && !this.inBasket ){
+          let itms = parseInt(this.nrItems);
+            if(itms > 0 && !this.inBasket ){
                  let itm = {}
               itm.id = this.item.id;
-              itm.quant = this.nrItems;
+              itm.quant = itms;
               this.$emit('changed',itm);
               this.inBasket = true;
             }else{

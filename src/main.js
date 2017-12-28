@@ -59,18 +59,19 @@ window.page = new Vue({
 });
 window.addEventListener('load',()=>{
   window.slider = tns({
+    disabled:true,
     container: '#banners',
-    slideBy: 1,
-    autoplay: true,
-    nav:true,
-    disabled:false,
 
     responsive:{
       2:{
         disabled:true
       },
       960:{
-        disabled:false
+        disabled:false,   
+        slideBy: 1,
+        autoplay: true,
+        nav:true,
+        disabled:false,
       }
     }
   });
@@ -139,33 +140,39 @@ window.addEventListener('load',()=>{
       categs[i].classList.contains('active')?categs[i].classList.remove('active') :categs[i].classList.add('active');
     });
   }
+
   document.getElementsByClassName('mobMenu')[0].addEventListener('click' , ()=>{
     Velocity(document.getElementsByClassName('navigation')[0] , {left:0} );
+    document.getElementsByTagName('body')[0].classList.add('scr-no');
   });
+
   document.getElementsByClassName('closeMen')[0].addEventListener('click' , ()=>{
     Velocity(document.getElementsByClassName('navigation')[0] , {left:'-100vw'} );
+    document.getElementsByTagName('body')[0].classList.remove('scr-no');
   });
+
   document.getElementById('mobFilters').addEventListener('click',()=>{
     if(window.innerWidth < 960){
       let flBlock=document.getElementsByClassName('prods__filters')[0];
        let bodies = document.querySelectorAll('body , html');
 
       if(flBlock.style.display !== 'block'){
-        
         Velocity(flBlock , 'slideDown' );
-        Velocity( document.getElementsByTagName('body')[0], 'scroll' , {container: document.querySelector('.top-pan')} ).then(
+        document.getElementById('mobFilters').classList.add('opened');
+        let body = document.querySelector('body')
+        //Velocity( document.querySelector('.top-pan') , 'scroll' , {container:body} )
+        Velocity(body , 'scroll' , {offset :document.querySelector('.top-pan').offsetTop +'px'})
+        .then(
           function(elements) {  
-            console.log('scroll end');
-              for(let i = 0; i < bodies.length; i ++ ){
-                bodies[i].classList.add('scr-no');
-              }
+            console.log(elements);
+            //console.log('scroll end');
+            document.getElementsByTagName('body')[0].classList.add('scr-no');
           });
       }else{
         Velocity( flBlock, 'slideUp');
+        document.getElementById('mobFilters').classList.remove('opened');
         setTimeout( function(){
-          for(let i = 0; i < bodies.length; i ++ ){
-            bodies[i].classList.remove('scr-no');
-          }
+          document.getElementsByTagName('body')[0].classList.remove('scr-no');
         } , 300);
       }
       

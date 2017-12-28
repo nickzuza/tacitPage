@@ -21,6 +21,9 @@
     margin:0;
     padding:0;
 }
+body{
+    position: relative;
+}
 a{
     text-decoration: none;
 }
@@ -96,7 +99,15 @@ button{
                     align-items: center;
                     color:#fff;
                 }
-                .navigation{
+                
+                .logo{
+                    color:#fff;
+                    font-family:@font1;
+                    font-weight: 900;
+                    font-style: italic;
+                    font-size: 24px; 
+                }
+                .navigation {
                     .screen(2px , @s960 , { 
                         z-index: 111;
                         position: fixed;
@@ -108,15 +119,6 @@ button{
                         flex-direction: column;    
                         justify-content: center;
                     });
-                }
-                .logo{
-                    color:#fff;
-                    font-family:@font1;
-                    font-weight: 900;
-                    font-style: italic;
-                    font-size: 24px; 
-                }
-                .navigation {
                     .closeMen{
                         .screen(@s960 , 70000px , {display: none});
                         font-size: 35px;
@@ -124,6 +126,7 @@ button{
                         right:20px;
                         top:20px;
                         color:#fff;
+                        user-select: none;
                         transform: rotate(45deg);
                         background-color: transparent;
                         border: none;
@@ -138,17 +141,21 @@ button{
                         height: 100%;
                         display: flex;
                         align-items: center;
-                        transition: 0.3s;
+                        
                         .screen(2px , @s960 , {
                             font-size: 16px;
                             height: 50px;
                             font-weight: 700;
-
+                            border:2px solid @blue1;
+                            margin: 5px 0;
+                            transition: 0.3s;
                         });
                         
                         &:hover{
-                            background-color: #fff;
-                            color:@blue2
+                          
+                            background-color:#fff;
+                            color:@blue1;
+                            .screen(2px , @s960 , {border-color:@blue1;  outline: 1px solid #fff;});
                         }
 
                     }
@@ -330,7 +337,10 @@ button{
                 align-items: center;
                 justify-content: center;
             });
-            .screen(2px , @s960 , {width: 100%});
+            .screen(2px , @s960 , {
+                width: 100%;
+                background-size: 100% 270px;
+            });
         }
     }
     .content{
@@ -430,11 +440,23 @@ button{
                     text-align: left;
                     font-family: @font3;
                     font-size: 17px;
+                    &.opened{
+                        .screen(2px , @s960 , {
+                            background-color: @blue1;
+                            color:#fff;
+                            box-shadow: 0 1px 0 @blue1;
+                            svg{
+                                fill:#fff;
+                            }
+                        });
+                    }
                     svg{
                         display: none;
                     }
                     .screen(2px , @s960 , {
                         width: 100%;
+                        padding-left: 30px;
+                        transition: 0.3s;
                         svg{
                             display: inline-block;
                             position: absolute;
@@ -451,7 +473,7 @@ button{
                     .screen(2px , @s960 , {display: none});
                 }
                 .screen(@s960 ,  @s1280 , {display: none});
-                .screen(2px , @s960 , {width: ~'calc(100% - 155px)';});
+                .screen(2px , @s960 , {width: ~'calc(100% - 155px)';padding-left: 0;;});
             }
             &__sortBy , &__qty{
                 border-right:1px solid #d5d5d6;
@@ -941,7 +963,6 @@ button{
     }
 
     .slider{
-        display: none;
         width: 100%;
         height: 250px; 
         position: relative;
@@ -975,6 +996,8 @@ button{
                 flex-direction: column;
                 box-sizing: border-box;
                 top:50px;
+                .screen(@s480 , @s960 , {left: 0 ; right:0; margin:0 auto;});
+                .screen(2px , @s480 , {left: 0 ; right:0;width: 290px; margin:0 auto;});
                 .title{
                     font-family: @font3;
                     color:#fff;
