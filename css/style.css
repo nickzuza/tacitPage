@@ -995,6 +995,9 @@ s .content .top-pan .multiselect:after {
   -webkit-appearance: none;
   margin: 0;
 }
+.content .prods__products__wrap .item .bottom-block .count input[type=number] {
+  -moz-appearance: textfield;
+}
 .content .prods__products__wrap .item .bottom-block .toCard {
   width: 122px;
   height: 34px;
