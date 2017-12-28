@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>tacit-page</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700|Poppins:600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900i" rel="stylesheet">
@@ -11,8 +12,6 @@
 
 <body>
     <div id="app">
-
-
         <header class="header">
             <div class="head">
                 <div class="container">
@@ -120,28 +119,12 @@
                 </div>
                 <div class="top-pan__sortBy">
                     <span>sort by:</span>
-                    <multiselect 
-                    v-model="sortBy.val" 
-                    :options="sortBy.opts" 
-                    :searchable="false" 
-                    :close-on-select="true" 
-                    :clear-on-select="true" 
-                    :hide-selected="true"
-                    label="name" 
-                    track-by="name">
+                    <multiselect v-model="sortBy.val" :options="sortBy.opts" :searchable="false" :close-on-select="true" :clear-on-select="true" :hide-selected="true" label="name" track-by="name">
                     </multiselect>
                 </div>
                 <div class="top-pan__qty">
                     <span>show:</span>
-                    <multiselect 
-                    v-model="show.val" 
-                    :options="show.opts" 
-                    :searchable="false" 
-                    :close-on-select="true" 
-                    :clear-on-select="true"
-                    :hide-selected="true" 
-                    label="qty" 
-                    track-by="qty">
+                    <multiselect v-model="show.val" :options="show.opts" :searchable="false" :close-on-select="true" :clear-on-select="true" :hide-selected="true" label="qty" track-by="qty">
                     </multiselect>
                 </div>
                 <div class="top-pan__view">

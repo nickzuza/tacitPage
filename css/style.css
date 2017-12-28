@@ -715,6 +715,11 @@ s .content .top-pan .multiselect:after {
   visibility: hidden;
   opacity: 0;
 }
+@media (min-width: 2px) and (max-width: 959px) {
+  .content .prods__filters__item__title .close {
+    display: none !important;
+  }
+}
 .content .prods__filters__item__opts1 {
   width: 100%;
   padding: 32px  22px 43px 46px;
@@ -1170,6 +1175,11 @@ button[data-action="start"] {
   justify-content: center;
   z-index: 2;
   margin: auto 0;
+}
+@media (min-width: 2px) and (max-width: 959px) {
+  .tns-nav {
+    right: 40px;
+  }
 }
 .tns-nav button {
   padding: 0;

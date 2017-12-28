@@ -34,14 +34,16 @@ export default {
       },
       addToCard(){
           let itms = parseInt(this.nrItems);
-            if(itms > 0 && !this.inBasket ){
+            if(itms > 0 && !this.inBasket  && itms < 99 ){
                  let itm = {}
               itm.id = this.item.id;
               itm.quant = itms;
               this.$emit('changed',itm);
               this.inBasket = true;
+              let itmsText=itm.quant>1?'items':'item';
+              alert('added to cart  '+itm.quant+' '+itmsText);
             }else{
-                console.log("it's 0 or in cart!");
+                alert("You have 0 items or  items number is greater  than  99 /  lower   than  0");
             }
       },
       removeFromCard(){

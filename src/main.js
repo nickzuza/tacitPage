@@ -42,6 +42,8 @@ window.page = new Vue({
     removeItem(id){
       for(let i = 0 ; i < this.inCartItms.items.length;i++){
         if(this.inCartItms.items[i].id === id){
+           let itmsText= this.inCartItms.items[i].quant >1 ? 'items':'item';
+           alert('removed from cart  '+ this.inCartItms.items[i].quant +' '+itmsText);
           this.inCartItms.items.splice(i, 1);
         }
       }
@@ -159,13 +161,11 @@ window.addEventListener('load',()=>{
       if(flBlock.style.display !== 'block'){
         Velocity(flBlock , 'slideDown' );
         document.getElementById('mobFilters').classList.add('opened');
-        let body = document.querySelector('body')
-        //Velocity( document.querySelector('.top-pan') , 'scroll' , {container:body} )
+        let body = document.querySelector('body');
         Velocity(body , 'scroll' , {offset :document.querySelector('.top-pan').offsetTop +'px'})
         .then(
           function(elements) {  
             console.log(elements);
-            //console.log('scroll end');
             document.getElementsByTagName('body')[0].classList.add('scr-no');
           });
       }else{
@@ -175,18 +175,17 @@ window.addEventListener('load',()=>{
           document.getElementsByTagName('body')[0].classList.remove('scr-no');
         } , 300);
       }
-      
-     
     }
   });
 });
 
 window.addEventListener('resize',()=>{
   if(window.innerWidth > 960 ){
-    let bodies = document.querySelectorAll('body , html');
-    for(let i = 0; i < bodies.length; i ++ ){
-      bodies[i].classList.remove('scr-no');
-    } 
+    document.getElementsByTagName('body')[0].classList.remove('scr-no');
+  }else{
+    if( document.getElementById('mobFilters').classList.contains('opened')){
+      document.getElementsByTagName('body')[0].classList.add('scr-no');
+    }
   }
   
  });
