@@ -1,4 +1,5 @@
 .DS_Store
+<<<<<<< HEAD
 node_modules
 /dist
 
@@ -14,8 +15,20 @@ yarn-error.log*
 # Editor directories and files
 .idea
 .vscode
+=======
+node_modules/
+dist/
+npm-debug.log
+yarn-error.log
+
+# Editor directories and files
+.idea
+>>>>>>> 6e52626a609278f7ce91d0920c3873805f276509
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
+<<<<<<< HEAD
 *.sw*
+=======
+>>>>>>> 6e52626a609278f7ce91d0920c3873805f276509
