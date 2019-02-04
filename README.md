@@ -1,6 +1,7 @@
 # tacit-page
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Project setup
 ```
 yarn install
@@ -29,6 +30,8 @@ yarn run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 =======
+=======
+>>>>>>> 6e52626a609278f7ce91d0920c3873805f276509
 > test task for tacit
 
 ## Build Setup
@@ -45,4 +48,7 @@ npm run build
 ```
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+<<<<<<< HEAD
+>>>>>>> 6e52626a609278f7ce91d0920c3873805f276509
+=======
 >>>>>>> 6e52626a609278f7ce91d0920c3873805f276509

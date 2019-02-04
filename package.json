@@ -1,5 +1,6 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   "name": "tacit-page",
   "version": "0.1.0",
   "private": true,
@@ -27,6 +28,8 @@
   }
 }
 =======
+=======
+>>>>>>> 6e52626a609278f7ce91d0920c3873805f276509
     "name": "tacit-page",
     "description": "test task for tacit",
     "version": "1.0.0",
@@ -63,5 +66,9 @@
         "webpack": "^3.6.0",
         "webpack-dev-server": "^2.9.1"
     }
+<<<<<<< HEAD
+}
+>>>>>>> 6e52626a609278f7ce91d0920c3873805f276509
+=======
 }
 >>>>>>> 6e52626a609278f7ce91d0920c3873805f276509
