@@ -107,6 +107,17 @@ export default {
 </script>
 
 <style lang="less">
+<<<<<<< HEAD
   @import "../less/style.less";
   
+=======
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+>>>>>>> ee9699f28e60fa744001eb90b346a1f5bb2ad864
 </style>

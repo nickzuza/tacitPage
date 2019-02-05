@@ -1,0 +1,23 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+[*.{js,jsx,ts,tsx,vue}]
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = true
+insert_final_newline = true
+=======
+=======
+>>>>>>> 6e52626a609278f7ce91d0920c3873805f276509
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+<<<<<<< HEAD
+>>>>>>> 6e52626a609278f7ce91d0920c3873805f276509
+=======
+>>>>>>> 6e52626a609278f7ce91d0920c3873805f276509
