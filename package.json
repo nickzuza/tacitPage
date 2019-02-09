@@ -18,10 +18,8 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.4.0",
     "@vue/cli-service": "^3.4.0",
-    "@vuepress/plugin-register-components": "^1.0.0-alpha.0",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
     "vue-template-compiler": "^2.5.21",
-    "vuepress": "^1.0.0-alpha.37"
   }
 }
