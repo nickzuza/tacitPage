@@ -4,10 +4,6 @@
         <div class="docs__body">
             <div class="section">
                 <propdoc :component="headerComponent" >
-                     <template slot="pre-use">
-                        Asa se include   componentul in pagina : 
-                    </template>
-                    
                     <template slot="pre-props">
                         Props-urile primite de component : 
                     </template>
