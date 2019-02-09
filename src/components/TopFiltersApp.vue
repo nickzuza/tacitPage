@@ -162,3 +162,191 @@ export default {
     }
 }
 </script>
+
+<style lang="less">
+    @import '../less/base.less';    
+    .top-pan{
+        border-top:none; 
+        width:100%;
+        border: 1px solid #d5d5d6;
+        border-top: none;
+        display: flex;
+        box-sizing: border-box;
+        position: relative;
+        button{
+            width: 80px;
+            height: 80px;
+            background: #fff;
+            border: none;     
+            svg{
+                fill:@blue1;
+            }
+        }
+        .multiselect{
+            width: ~'calc(100% - 77px)';
+            height: 100%;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1;s
+            &:after{
+                content:'▼';
+                right: 40px;
+                top: 0;
+                bottom: 0;
+                font-size: 10px;
+                height: 10px;
+                margin: auto 0;
+                position: absolute;
+            }
+
+            &__input{
+                height: 80px;
+                border: none;
+                outline:none;
+            }
+            &__content{
+                width: 100%;
+                &-wrapper{
+                    position: absolute;
+                    width: 100%;
+                    left: -1px;
+                    top:100%;
+                    border: 1px solid #d5d5d6;
+                }
+            }
+            &__element{
+                &:hover{
+                    background: #eee;
+                }
+                span{
+                    height: 80px;
+                    padding: 0 15px;
+                    display: flex;
+                    align-items: center
+
+                }
+                box-sizing: border-box;
+                border-bottom:1px solid #d5d5d6;
+                width: 100%;
+                background-color: #fff;
+                &:nth-child(3){
+                    border-bottom: none;
+                }
+            }
+        }
+        &__filter , &__sortBy , &__qty {
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            font-family: @font3;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 14px;
+            height: 80px;
+            position: relative;
+        }
+        &__filter{
+            width: 25%;
+            padding-left:30px; 
+            border-right:1px solid #d5d5d6;
+            button{
+                border-left:1px solid #d5d5d6;
+            }
+            #mobFilters{
+                border-left:none;
+                width: 100%!important;
+                font-weight: 700;
+                text-align: left;
+                font-family: @font3;
+                font-size: 17px;
+                &.opened{
+                    .screen(2px , @s960 , {
+                        background-color: @blue1;
+                        color:#fff;
+                        box-shadow: 0 1px 0 @blue1;
+                        svg{
+                            fill:#fff;
+                        }
+                    });
+                }
+                svg{
+                    display: none;
+                }
+                .screen(2px , @s960 , {
+                    width: 100%;
+                    padding-left: 30px;
+                    transition: 0.3s;
+                    svg{
+                        display: inline-block;
+                        position: absolute;
+                        right: 25px;
+                        top:0;
+                        bottom:0;
+                        margin:auto 0;
+                        fill: #000;
+                    }
+                
+                })
+            }
+            #clearFilters{
+                .screen(2px , @s960 , {display: none});
+            }
+            .screen(@s960 ,  @s1280 , {display: none});
+            .screen(2px , @s960 , {width: ~'calc(100% - 155px)';padding-left: 0;;});
+        }
+        &__sortBy , &__qty{
+            border-right:1px solid #d5d5d6;
+            padding: 0 45px;
+            .screen(2px , @s960 , {display: none;});
+            span{
+                margin-right: 10px;
+            }
+        };
+        &__sortBy{
+            width: ~'calc(25% + 15px)';
+            .screen(@s960 ,  @s1280 , {
+                width:~'calc(50% - 160px)';
+            });
+
+        }
+        &__qty{
+            width: ~'calc(25% - 15px)';
+            padding: 0 30px;
+            .screen(@s960 ,  @s1280 , {
+                width:~'calc(50% - 160px)';
+            });
+        }
+        &__view{
+            .screen(2px , @s960 , {width: 155px});
+
+            width: 320px;
+            height: 80px;
+            display: flex;
+            .viewAll{
+                font-family: @font3;
+                font-weight: 700;
+                text-transform: uppercase;
+                width: 160px;
+                color:#fff;
+                background-color:@blue1;
+                border:none;
+                box-shadow: 1px 1px 0 @blue1;
+                .screen(2px , @s960 , {width: 155px;display: block!important;})
+            }
+            button{
+                &.active{
+                    background-color: @blue1;
+                    svg{
+                        fill:#fff;
+                    }
+                }
+                transition: 0.3s;
+                border-right:1px solid #d5d5d6;
+                .screen(2px , @s960 , {display: none;})
+            }
+
+
+        }
+    }
+</style>

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Product from './product'
+import Product from './ProductApp'
 import products from '../utils/products';
 
 export default {
@@ -42,3 +42,28 @@ export default {
 }
 </script>
 
+<style lang="less">
+    @import '../less/base.less';
+
+    .prods__products {
+        width: ~'calc( (((100% - 320px) / 3)) *  2 + 305px )';
+        min-height: 200px;
+        padding-top:10px;
+        padding-left: 15px;
+        overflow-x: hidden;
+        .screen(@s960 , @s1280 , {
+            width: ~'calc((100% / 3) * 2 - 35px)';
+            padding: 0;
+        });
+        .screen(2px, @s960 , {width: 100%;padding: 10px 0;});
+        &__wrap{
+            width:  ~'calc(100% + 15px)';
+            margin-right: -15px;
+            display: flex;
+            flex-wrap: wrap; 
+            .screen(2px , @s960 , {margin-right: 0;width: 100%; });
+               
+        }
+
+    }
+</style>
