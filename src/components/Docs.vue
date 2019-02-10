@@ -1,19 +1,21 @@
 <template>
-    <div class="docs">
-        <div class="docs__header">Documentarea Componentelor</div>
-        <div class="docs__body">
-            <div class="section">
-                <propdoc :component="headerComponent" >
-                    <template slot="pre-props">
-                        Props-urile primite de component : 
-                    </template>
-                </propdoc>
-                <p>Exemplu: </p>
-                <header-app :total-cart="mockData.totalCart"></header-app>
+    <div class="docs__wrapper">
+        <div class="docs">
+            <div class="docs__header">Documentarea Componentelor</div>
+            <div class="docs__body">
+                <div class="section">
+                    <propdoc :component="headerComponent" >
+                        <template slot="pre-props">
+                            Props-urile primite de component : 
+                        </template>
+                    </propdoc>
+                    <p>Exemplu: </p>
+                    <header-app :total-cart="mockData.totalCart"></header-app>
+                </div>
             </div>
         </div>
-
     </div>
+
 </template>
 
 <script>
@@ -39,12 +41,12 @@ export default {
 <style lang="less">
     @import '../less/base.less';
 
-    body {
-        background-color: #eee;
-    }
-
     .docs {
         font-family: @font2;
+
+        &__wrapper {
+            background-color: #eee;
+        }
 
         &__header {
             padding: 15px;
@@ -127,7 +129,7 @@ export default {
         .props {
             display: flex;
             flex-direction: column;
-            margin-bottom: 15px;
+            margin:  10px 0 15px 0;
 
             .proprow {
                 display: flex;

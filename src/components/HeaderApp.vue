@@ -63,7 +63,7 @@ export default {
     Sloganul colectiei de moda curenta;
     Componenta Breadcrumbs;
     `,
-    token: `<header-app :total-cart=0></header-app>`,
+    token: `<header-app :totalCart=0></header-app>`,
     mounted () {
         document.getElementsByClassName('mobMenu')[0].addEventListener('click' , ()=>{
             Velocity(document.getElementsByClassName('navigation')[0] , {left:0} );
@@ -77,7 +77,7 @@ export default {
     },
 
     props: {
-        'total-cart': {
+        'totalCart': {
             type: Number,
             default: 0,
             note: 'Reprezinta numarul total de elemente ce sunt la moment in cos'

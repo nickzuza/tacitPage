@@ -1,6 +1,6 @@
 <template>
     <div>
-        <header-app :total-cart="totalCartQty"></header-app>
+        <header-app :totalCart="totalCartQty"></header-app>
         <banners-app></banners-app>
         <div class="content">
             <top-filters></top-filters>
