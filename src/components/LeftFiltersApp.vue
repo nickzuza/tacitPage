@@ -7,12 +7,9 @@
             </div>
             <div class="prods__filters__item__opts1">
                 <ul>
-                    <li><span>Lifestyle</span><span>01</span></li>
-                    <li><span>Running</span><span>15</span></li>
-                    <li><span>Training & Gym</span><span>20</span></li>
-                    <li><span>Clothing</span><span>25</span></li>
-                    <li><span>Scarves</span><span>30</span></li>
-                    <li><span>Accessories</span><span>35</span></li>
+                    <li v-for="itm in categories" v-bind:key="itm.name">
+                        <span>{{itm.name}}</span><span>{{itm.numb}}</span>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -23,10 +20,7 @@
             </div>
             <div class="prods__filters__item__opts2">
                 <ul>
-                    <li>s</li>
-                    <li>m</li>
-                    <li>l</li>
-                    <li>xl</li>
+                   <li v-for="item in sizes" v-bind:key="item">{{item}}</li>
                 </ul>
             </div>
         </div>
@@ -35,6 +29,13 @@
 
 <script>
 export default {
+    name: "left-filters",
+    introduction: "Filtrele verticale de produse",
+    description:`Filtrele date sunt organizate drept dropdown-uri, si servesc pentru filtrarea nemijlocita a produselor.
+    aceste filtre permit sortarea dupa categorie, si dupa marimea produsului.este realizata doar partea de interactiune cu filtrul, nu si nemijlocti functionalul, fiind necesar suport-ul back-end.
+    `,
+
+    token: ` <top-filters :sortByOpts="sortBy" :showOpts="show"></top-filters>`,
     data() {
         return({})
     },
@@ -85,6 +86,16 @@ export default {
                 categs[i].classList.remove('active') :
                 categs[i].classList.add('active');
             });
+        }
+    },
+    props: {
+        categories: {
+            type: Array,
+            note: "categoriile produselor"
+        },
+        sizes: {
+            type: Array,
+            note: "merimile produselor"
         }
     }
 }

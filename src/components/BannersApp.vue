@@ -23,7 +23,10 @@
 
 <script>
 export default {
-
+    name: "banners-app",
+    introduction: "Componenta ce contine bannerele paginii",
+    description:`Aceasta componenta prezinta bannerele in cadrul paginii, care la numar sunt 2`,
+    token: `<banners-app></banners-app>`,
 }
 </script>
 

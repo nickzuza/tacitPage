@@ -90,65 +90,70 @@ export default {
 <style lang="less">
     @import '../less/base.less';
     
-    .header{
+    .header {
         width: 100%;
         height: 330px;
         background-color: @blue2;
-        .screen(2px , @s960 , {height: 250px;});
-        .head{
+        .screen(2px, @s960, { height: 250px; });
+        .head {
             height: 70px;
             background: @blue1;
             width: 100%;
             display: block;
             margin-bottom: 50px;
-            .screen(2px , @s960 , {margin-bottom: 29px;});
-            .container{
+            .screen(2px, @s960, { margin-bottom: 29px; });
+            .container {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
                 height: 100%;
                 box-sizing:border-box;
                 padding: 0 50px;
-                .screen(2px, @s480 , {padding:  0 15px});
+                .screen(2px, @s480 , { padding: 0 15px; });
                 
-                .navigation , .logo , .searchCart{
+                .navigation,
+                .logo,
+                .searchCart {
                     height: 100%;
                     display: flex;
                     align-items: center;
                     color:#fff;
                 }
                 
-                .logo{
+                .logo {
                     color:#fff;
-                    font-family:@font1;
+                    font-family: @font1;
                     font-weight: 900;
                     font-style: italic;
                     font-size: 24px; 
                 }
+                
                 .navigation {
-                    .screen(2px , @s960 , { 
+                    .screen(2px, @s960, { 
                         z-index: 111;
                         position: fixed;
                         width: 100vw;
-                        height:100vh;
-                        left:-100vw;
-                        top:0;
+                        height: 100vh;
+                        left: -100vw;
+                        top: 0;
                         background-color: @blue1;
                         flex-direction: column;    
                         justify-content: center;
                     });
-                    .closeMen{
-                        .screen(@s960 , 70000px , {display: none});
+
+                    .closeMen {
+                        .screen(@s960 , 70000px , { display: none });
                         font-size: 35px;
                         position: absolute;
-                        right:20px;
-                        top:20px;
-                        color:#fff;
+                        right: 20px;
+                        top: 20px;
+                        color: #fff;
                         user-select: none;
                         transform: rotate(45deg);
                         background-color: transparent;
                         border: none;
                     }
+
                     a {
                         text-decoration: none;
                         color:#fff;

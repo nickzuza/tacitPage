@@ -3,9 +3,9 @@
         <header-app :totalCart="totalCartQty"></header-app>
         <banners-app></banners-app>
         <div class="content">
-            <top-filters></top-filters>
+            <top-filters :sortByOpts="sortBy" :showOpts="show"></top-filters>
             <div class="prods">
-                <left-filters></left-filters>
+                <left-filters :categories="categories" :sizes = "sizes"></left-filters>
                 <products-list 
                     :items="items"
                     v-on:add-item-to-cart="inCartAdd"
@@ -39,21 +39,25 @@ export default {
 
   data: () =>  ({
     items: products,
-    sortBy: {
-      opts: [
+    sortBy: [
         { id: 0, name: "Price $ - $$" },
         { id: 1, name: "Name A - Z" },
       ],
-      val: null
-    },
-    show: {
-      opts: [
+    show: [
         { id: 0, qty: 9 },
         { id: 1, qty: 18 },
         { id: 2, qty: 36 }
       ],
-      val: null
-    }
+    categories: [
+      { name: 'Lifestyle', numb: '01'},
+      { name: 'Running', numb: '15'},
+      { name: 'Training & Gym', numb: '20'},
+      { name: 'Clothing', numb: '25'},
+      { name: 'Scarves', numb: '30'},
+      { name: 'Acccesories', numb: '21'},
+    ],
+    sizes: ['s', 'm', 'l', 'xl']
+
   }),
 
   methods: {
@@ -76,10 +80,6 @@ export default {
       item.qty = 1;
     }
     
-  },
-
-  mounted() {
-    this.sortBy.val = this.sortBy.opts[0];
   },
 
   computed: {

@@ -33,11 +33,11 @@
         </div>
         <div class="top-pan__sortBy">
             <span>sort by:</span>
-            <multiselect v-model="sortBy.val" :options="sortBy.opts" :searchable="false" :close-on-select="true" :clear-on-select="true" :hide-selected="true" label="name" track-by="name"></multiselect>
+            <multiselect v-model="sortBy.val" :options="sortByOpts" :searchable="false" :close-on-select="true" :clear-on-select="true" :hide-selected="true" label="name" track-by="name"></multiselect>
         </div>
         <div class="top-pan__qty">
             <span>show:</span>
-            <multiselect v-model="show.val" :options="show.opts" :searchable="false" :close-on-select="true" :clear-on-select="true" :hide-selected="true" label="qty" track-by="qty"></multiselect>
+            <multiselect v-model="show.val" :options="showOpts" :searchable="false" :close-on-select="true" :clear-on-select="true" :hide-selected="true" label="qty" track-by="qty"></multiselect>
         </div>
         <div class="top-pan__view">
             <button id="gridView">
@@ -119,21 +119,18 @@
 <script>
 import Multiselect from 'vue-multiselect';
 export default {
+    name: "top-filters",
+    introduction: "Filtrele orizontale de produse",
+    description:`Bara data de filtre predestinata pentru a aranja afisarea produselor dorita de utilizator.In cadrul proiectului dat,
+    aceste elemente sunt in mare parte doar mock-uri,fiind necesara si activitatea pe partea de back pentru functionarea acestora.
+    Insa elementele drop-down sunt disponibile pentru a demonstras cum vor arata acestea. Deasemenea elementele de schimbare a modului de afisare a produselor tot sunt functionale`,
+    token: ` <top-filters :sortByOpts="sortBy" :showOpts="show"></top-filters>`,
     data() {
         return({
             sortBy: {
-                opts: [
-                    { id: 0, name: "Price $ - $$" },
-                    { id: 1, name: "Name A - Z" },
-                ],
                 val: null
             },
             show: {
-                opts: [
-                    { id: 0, qty: 9 },
-                    { id: 1, qty: 18 },
-                    { id: 2, qty: 36 }
-                ],
                 val: null
             }
         })
@@ -156,6 +153,19 @@ export default {
             el.classList.add('active');
             document.querySelector('.prods__products__wrap').classList.add('list');
         });
+
+        this.sortBy.val = this.sortBy[0];
+    },
+
+    props: {
+        sortByOpts: {
+            type: Array,
+            note: 'Optiunile de sortare ce sunt prevazute pentru produse'
+        },
+        showOpts: {
+            type: Array,
+            note: 'Optiunile de sortare ce sunt prevazute pentru produse'
+        }
     },
     components: {
         Multiselect

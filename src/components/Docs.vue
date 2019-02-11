@@ -3,6 +3,7 @@
         <div class="docs">
             <div class="docs__header">Documentarea Componentelor</div>
             <div class="docs__body">
+                
                 <div class="section">
                     <propdoc :component="headerComponent" >
                         <template slot="pre-props">
@@ -11,6 +12,50 @@
                     </propdoc>
                     <p>Exemplu: </p>
                     <header-app :total-cart="mockData.totalCart"></header-app>
+                </div>
+
+                 <div class="section section2">
+                    <propdoc :component="bannersComponent" >
+                        <template slot="pre-props">
+                           Componentul dat nu are props-uri. 
+                        </template>
+                    </propdoc>
+                    <p>Exemplu: </p>
+                    <banners-app class="toBottom"></banners-app>
+                </div>
+
+                <div class="section">
+                    <propdoc :component="topFiltersComponent" >
+                        <template slot="pre-props">
+                           Props-urile filtrelor sunt array-uri de obiecte. Fiecare obiect trebuie sa aiba structura :<br>
+                           <code> 
+                                { <br/>
+                                id: {id element de tip Number},<br/>
+                                name: 'numele optiunii de tip String' <br/>
+                                }
+                            </code>
+                        </template>
+                    </propdoc>
+                    <p>Exemplu: </p>
+                    <top-filters :sortByOpts="mockData.sortBy" :showOpts="mockData.show"></top-filters>
+                </div>
+
+                <div class="section">
+                    <propdoc :component="leftFiltersComponent" >
+                        <template slot="pre-props">
+                           Props-urile filtrelor sunt array-uri de obiecte. <br>
+                           Fiecare obiect trebuie din array-ul categories trebuie sa aiba structura :<br>
+                           <code> 
+                                { <br/>
+                                numb: {numere produse in categorie - tip Number},<br/>
+                                name: 'numele optiunii de tip String' <br/>
+                                }
+                            </code><br/>
+                            Iar pentru array-ul sizes se cere ca fiecare element sa fie un string cu denumirea marimii
+                        </template>
+                    </propdoc>
+                    <p>Exemplu: </p>
+                     <left-filters :categories="mockData.categories" :sizes = "mockData.sizes"></left-filters>
                 </div>
             </div>
         </div>
@@ -21,19 +66,52 @@
 <script>
 import propdoc from 'propdoc';
 import headerApp from './HeaderApp';
+import bannersApp from './BannersApp';
+import topFilters from './TopFiltersApp';
+import leftFilters from './LeftFiltersApp';
 
 export default {
     data() {
         return ({
             mockData: {
-                totalCart: 0
+                totalCart: 0,
+
+                sortBy: [
+                    { id: 0, name: "Price $ - $$" },
+                    { id: 1, name: "Name A - Z" },
+                ],
+
+                show: [
+                    { id: 0, qty: 9 },
+                    { id: 1, qty: 18 },
+                    { id: 2, qty: 36 }
+                ],
+
+                categories: [
+                    { name: 'Lifestyle', numb: '01'},
+                    { name: 'Running', numb: '15'},
+                    { name: 'Training & Gym', numb: '20'},
+                    { name: 'Clothing', numb: '25'},
+                    { name: 'Scarves', numb: '30'},
+                    { name: 'Acccesories', numb: '21'},
+                ],
+                
+                sizes: ['s', 'm', 'l', 'xl']
             },
-            headerComponent: headerApp
-        })
+
+            headerComponent: headerApp,
+            bannersComponent: bannersApp,
+            topFiltersComponent: topFilters,
+            leftFiltersComponent: leftFilters
+
+        });
     },
     components: {
         propdoc,
-        headerApp 
+        headerApp,
+        bannersApp,
+        topFilters,
+        leftFilters
     }
 }
 </script>
@@ -43,6 +121,8 @@ export default {
 
     .docs {
         font-family: @font2;
+        padding-bottom: 50px;
+
 
         &__wrapper {
             background-color: #eee;
@@ -60,7 +140,7 @@ export default {
             font-size: 1.3em;
         }
         &__body {
-            margin: 0 15px 25px;
+            margin: 0 15px 0;
             box-sizing: border-box;
             background-color: #fff;
             padding: 25px;
@@ -75,7 +155,9 @@ export default {
     }
 
     .section {
-        padding-bottom: 25px;
+        padding-bottom: 50px;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 50px;
 
         h2 {
             font-size: 1.2em;
@@ -161,5 +243,13 @@ export default {
             }
         }
 
+        &2 {
+            padding-bottom: 140px;
+
+            .toBottom {
+                position: relative;
+                top: 90px;
+            }
+        }
     }
 </style>
