@@ -18,6 +18,20 @@ import Product from './ProductApp'
 import products from '../utils/products';
 
 export default {
+    name: "products-list",
+    introduction: "Lista produselor pe pagina",
+    description:`
+    Componenta data are rolul de a ne afisa produsele pe pagina, si de a transmite in componentele produselor 
+    functionalul de adaugare si stergere a produselor di card
+    `,
+    token: `
+            <products-list 
+            :items="items"
+            v-on:add-item-to-cart="inCartAdd"
+            v-on:remove-itm-from-cart="removeItem"
+            v-on:change-itm-qty="changeItmQty">
+        </products-list>
+    `,
     components: {
         Product
     },

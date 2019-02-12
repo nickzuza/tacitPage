@@ -57,6 +57,22 @@
                     <p>Exemplu: </p>
                      <left-filters :categories="mockData.categories" :sizes = "mockData.sizes"></left-filters>
                 </div>
+
+                <div class="section">
+                    <propdoc :component="productsListComponent">
+                        <template slot="pre-props">
+                           Props: 
+                        </template>
+                    </propdoc>
+                    <p>Exemplu: </p>
+                    products
+                    <products-list 
+                        :items="mockData.products"
+                        v-on:add-item-to-cart="inCartAdd"
+                        v-on:remove-itm-from-cart="removeItem"
+                        v-on:change-itm-qty="changeItmQty">
+                    </products-list>
+                </div>
             </div>
         </div>
     </div>
@@ -64,11 +80,13 @@
 </template>
 
 <script>
+import products from '../utils/products';
 import propdoc from 'propdoc';
 import headerApp from './HeaderApp';
 import bannersApp from './BannersApp';
 import topFilters from './TopFiltersApp';
 import leftFilters from './LeftFiltersApp';
+import productsList from './ProductsListApp';
 
 export default {
     data() {
@@ -96,22 +114,46 @@ export default {
                     { name: 'Acccesories', numb: '21'},
                 ],
                 
-                sizes: ['s', 'm', 'l', 'xl']
+                sizes: ['s', 'm', 'l', 'xl'],
+
+                products,
             },
 
             headerComponent: headerApp,
             bannersComponent: bannersApp,
             topFiltersComponent: topFilters,
-            leftFiltersComponent: leftFilters
+            leftFiltersComponent: leftFilters,
+            productsListComponent: productsList
 
         });
+    },
+    methods: {
+        inCartAdd(id) {
+        this.items[id].inCart = true;
+        },
+
+        changeItmQty({id, qty}) {
+        const itm = this.items[id];
+        let num = parseInt(qty);
+        if(itm.qty + num < 99 && (itm.qty + num ) >= 0) {
+            itm.qty += num;
+        }
+        },
+
+        removeItem(id) {
+        const item = this.items[id];
+        alert('removed from cart  ' + item.qty + ' item/s');
+        item.inCart = false;
+        item.qty = 1;
+        }
     },
     components: {
         propdoc,
         headerApp,
         bannersApp,
         topFilters,
-        leftFilters
+        leftFilters,
+        productsList
     }
 }
 </script>
